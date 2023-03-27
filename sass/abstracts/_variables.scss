@@ -1,19 +1,25 @@
 // COLORS
 $color-grey-light-1: #f7f7f7;
 $color-grey-light-2: #eee;
+$color-grey-light-3: #ccc;
+$color-grey-light-4: #bbb;
 
 $color-test: blue;
+$color-test-2: #ffb900;
 
 $color-grey-dark-1: #333;
 $color-grey-dark-2: #555;
 $color-grey-dark-3: #777;
 $color-grey-dark-4: #999;
+$color-grey-dark-5: #aaa;
 
 $color-white: #fff;
 $color-black: #000;
 
 // FONT SIZES
 $default-font-size: 1.6rem;
+$medium-font-size: 2rem;
+$big-font-size: 3rem;
 
 // FONT WEIGHTS
 $thin: 100;
@@ -21,6 +27,9 @@ $light: 300;
 $regular: 400;
 $bold: 700;
 $huge: 900;
+
+// LETTER SPACINGS
+$letter-sp-small: 0.05rem;
 
 // LINE HEIGHTS
 $default-line-height: 1.6rem;
@@ -34,4 +43,8 @@ $margin-big: 6rem;
 $v-h-pad-regular: 3rem;
 
 // BORDER RADIUS
-$borad-small: 0.3rem;
+$borad-tiny: 0.5rem;
+$borad-small: 1rem;
+$borad-medium: 4rem;
+$borad-big: 7rem;
+$borad-huge: 10rem;

@@ -1,0 +1,113 @@
+.login {
+  height: 90vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: $color-grey-dark-1;
+  background-color: $color-grey-light-2;
+
+  border-radius: $borad-tiny;
+
+  // @include moveInRightFastMixin;
+
+  &__container {
+    height: 70vh;
+    width: 25vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+
+    // border: 0.1rem solid $color-black;
+    border-radius: $borad-small;
+
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.25);
+
+    background-color: $color-grey-light-3;
+    @include moveInBotFastMixin;
+  }
+
+  &__welcome {
+    padding: 2rem;
+    font-size: $big-font-size;
+    letter-spacing: $letter-sp-small;
+    transition: all 0.5s;
+
+    @include gradientOnText;
+    @include moveInBotSlowMixin;
+  }
+
+  &__logo-container {
+    height: 25rem;
+    width: 25rem;
+    border-radius: 50%;
+
+    overflow: hidden;
+  }
+
+  &__logo-img {
+    height: inherit;
+    width: inherit;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__container-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__input {
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: $default-font-size;
+    font-family: inherit;
+    text-align: center;
+    width: 16rem;
+    border-radius: $borad-huge;
+    color: inherit;
+    border: 0.1rem solid $color-white;
+
+    &-left-animation {
+      @include moveInLeftSlowMixin;
+    }
+
+    &-right-animation {
+      @include moveInRightSlowMixin;
+    }
+
+    &:focus {
+      outline: none;
+      border: 0.1rem solid $color-grey-light-3;
+    }
+
+    &::placeholder {
+      color: $color-grey-dark-4;
+    }
+  }
+
+  &__btn {
+    border: none;
+    background: none;
+    font-size: $big-font-size;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    @include scaleToNormalSlowMixin;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      color: $color-grey-dark-3;
+    }
+  }
+}

@@ -1,0 +1,64 @@
+// ANIMATIONS
+@mixin moveInBotSlowMixin {
+  animation-name: moveInBot;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+@mixin moveInBotFastMixin {
+  animation-name: moveInBot;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-out;
+}
+
+@mixin moveInTopSlowMixin {
+  animation-name: moveInTop;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+@mixin moveInLeftSlowMixin {
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+@mixin moveInRightSlowMixin {
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+@mixin moveInRightFastMixin {
+  animation-name: moveInRight;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-out;
+}
+
+@mixin scaleToNormalSlowMixin {
+  animation-name: scaleToNormal;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+@mixin rotate360Fast {
+  animation-name: rotate360;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+// TEXT MIXINS
+@mixin gradientOnText {
+  display: inline-block;
+  background-image: linear-gradient(
+    to right,
+    $color-grey-dark-2,
+    $color-grey-dark-1,
+    $color-grey-dark-5,
+    $color-grey-dark-4,
+    $color-grey-dark-3
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
