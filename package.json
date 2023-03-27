@@ -1,0 +1,17 @@
+{
+  "name": "swiftbank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "author": "Mateusz Miszczak",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^8.0.0"
+  },
+  "dependencies": {
+    "jquery": "^3.6.4"
+  }
+}
