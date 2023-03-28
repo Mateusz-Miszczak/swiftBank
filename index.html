@@ -37,10 +37,41 @@
             maxlength="4"
             class="login__input login__input-right-animation login__input--pin"
           />
-          <button class="login__btn">&rarr;</button>
+          <button class="btn btn__submit">&rarr;</button>
         </form>
       </div>
     </div>
+
+    <!-- APP -->
+    <nav class="navigation">
+      <div class="navigation__welcome-logo-container">
+        <div class="navigation__logo-container">
+          <img
+            src="img/logo.jpg"
+            alt="Logo"
+            class="navigation__welcome-logo-img"
+          />
+        </div>
+        <p class="navigation__welcome-message">Log in to get started</p>
+      </div>
+
+      <form class="navigation__login">
+        <input
+          type="text"
+          placeholder="user"
+          class="login__input navigation__login--input login__input--user"
+        />
+        <input
+          type="password"
+          placeholder="PIN"
+          maxlength="4"
+          class="login__input navigation__login--input login__input--pin"
+        />
+        <button class="btn btn__submit">&rarr;</button>
+      </form>
+    </nav>
+
+    <main class="app"></main>
     <script src="script.js"></script>
   </body>
 </html>
