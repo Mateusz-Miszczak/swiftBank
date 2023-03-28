@@ -81,7 +81,8 @@ html {
   font-size: 62.5%; }
 
 body {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  background-color: aqua; }
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -91,7 +92,33 @@ body {
   color: #333;
   padding: 3rem; }
 
+.btn {
+  font-size: 3rem;
+  border: none;
+  border-radius: 0.5rem; }
+  .btn__submit {
+    padding: 0.1rem 2rem;
+    background: none;
+    color: inherit;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s;
+    animation-name: scaleToNormal;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
+    .btn__submit:hover {
+      color: #555;
+      transform: scale(1.1); }
+    .btn__submit:focus, .btn__submit:active {
+      outline: none;
+      color: #777;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); }
+
 .login {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  left: -100rem;
   height: 90vh;
   display: flex;
   align-items: center;
@@ -147,7 +174,7 @@ body {
     font-size: 1.6rem;
     font-family: inherit;
     text-align: center;
-    width: 16rem;
+    width: 12rem !important;
     border-radius: 10rem;
     color: inherit;
     border: 0.1rem solid #fff; }
@@ -164,16 +191,40 @@ body {
       border: 0.1rem solid #ccc; }
     .login__input::placeholder {
       color: #999; }
-  .login__btn {
-    border: none;
-    background: none;
-    font-size: 3rem;
-    color: inherit;
-    cursor: pointer;
-    transition: all 0.3s;
-    animation-name: scaleToNormal;
-    animation-duration: 1s;
-    animation-timing-function: ease-out; }
-    .login__btn:hover, .login__btn:focus {
-      outline: none;
-      color: #777; }
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+  background-color: orange;
+  border-radius: 0.5rem; }
+  .navigation__welcome-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem; }
+  .navigation__logo-container {
+    margin: 1rem 0;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    overflow: hidden; }
+  .navigation__welcome-logo-img {
+    height: inherit;
+    width: inherit; }
+  .navigation__welcome-message {
+    padding: 2rem;
+    font-size: 2rem;
+    letter-spacing: 0.05rem;
+    transition: all 0.5s;
+    display: inline-block;
+    background-image: linear-gradient(to right, #555, #333, #aaa, #999, #777);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; }
+  .navigation__login {
+    display: flex;
+    gap: 1rem; }
+  .navigation__login--input {
+    width: 16rem !important; }

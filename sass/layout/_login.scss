@@ -1,4 +1,9 @@
 .login {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  left: -100rem;
+
   height: 90vh;
 
   display: flex;
@@ -71,7 +76,7 @@
     font-size: $default-font-size;
     font-family: inherit;
     text-align: center;
-    width: 16rem;
+    width: $width-btn-small;
     border-radius: $borad-huge;
     color: inherit;
     border: 0.1rem solid $color-white;
@@ -91,23 +96,6 @@
 
     &::placeholder {
       color: $color-grey-dark-4;
-    }
-  }
-
-  &__btn {
-    border: none;
-    background: none;
-    font-size: $big-font-size;
-    color: inherit;
-    cursor: pointer;
-    transition: all 0.3s;
-
-    @include scaleToNormalSlowMixin;
-
-    &:hover,
-    &:focus {
-      outline: none;
-      color: $color-grey-dark-3;
     }
   }
 }

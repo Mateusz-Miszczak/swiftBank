@@ -1,0 +1,29 @@
+.btn {
+  font-size: $big-font-size;
+  border: none;
+  border-radius: $borad-tiny;
+
+  &__submit {
+    padding: 0.1rem 2rem;
+
+    background: none;
+    color: inherit;
+    box-shadow: 0 5px 10px rgba($color-black, 0.2);
+    cursor: pointer;
+
+    transition: all 0.3s;
+    @include scaleToNormalSlowMixin;
+
+    &:hover {
+      color: $color-grey-dark-2;
+      transform: scale(1.1);
+    }
+
+    &:focus,
+    &:active {
+      outline: none;
+      color: $color-grey-dark-3;
+      box-shadow: 0 5px 10px rgba($color-black, 0.4);
+    }
+  }
+}

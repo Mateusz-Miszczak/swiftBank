@@ -1,0 +1,47 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+  background-color: orange;
+  border-radius: $borad-tiny;
+
+  &__welcome-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__logo-container {
+    margin: 1rem 0;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+
+    overflow: hidden;
+  }
+
+  &__welcome-logo-img {
+    height: inherit;
+    width: inherit;
+  }
+
+  &__welcome-message {
+    padding: 2rem;
+    font-size: $medium-font-size;
+    letter-spacing: $letter-sp-small;
+    transition: all 0.5s;
+
+    @include gradientOnText;
+  }
+
+  &__login {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__login--input {
+    width: $width-btn-medium;
+  }
+}
