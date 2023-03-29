@@ -82,7 +82,7 @@ html {
 
 body {
   box-sizing: border-box;
-  background-color: green; }
+  background-color: #eee; }
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -113,15 +113,16 @@ body {
     font-weight: 400; }
 
 .btn {
-  font-size: 3rem;
+  font-size: 2rem;
   border: none;
-  border-radius: 0.5rem; }
+  border-radius: 0.5rem;
+  background-color: transparent;
+  background-image: linear-gradient(to top left, #cba17b, #c0c0c0);
+  cursor: pointer; }
   .btn__submit {
-    padding: 0.1rem 2rem;
-    background-color: #999;
+    padding: 1rem 2rem;
     color: inherit;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
     transition: all 0.3s;
     animation-name: scaleToNormal;
     animation-duration: 1s;
@@ -133,22 +134,27 @@ body {
       outline: none;
       color: #777;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); }
+  .btn--sort {
+    margin-left: auto;
+    background: none;
+    font-size: 1.4rem;
+    font-weight: 400; }
 
 .movements {
   grid-row: 2 / span 3;
-  background-color: #fff;
+  background-color: #ccc;
   border-radius: 1rem;
   overflow: scroll; }
   .movements__row {
     display: flex;
     align-items: center;
     padding: 2rem 4rem;
-    border-bottom: 0.1rem solid #ffb900; }
+    border-bottom: 0.1rem solid #cba17b; }
   .movements__type {
     font-size: 1.1rem;
     text-transform: uppercase;
     font-weight: 400;
-    color: blue;
+    color: #eee;
     padding: 1.5rem 3rem;
     border-radius: 10rem;
     margin-right: 2rem; }
@@ -158,6 +164,23 @@ body {
       background-image: linear-gradient(to top left, #e52a5a, #ff585f); }
   .movements__value {
     margin-left: auto; }
+
+.summary {
+  display: flex;
+  grid-row: 5 / 6;
+  align-items: baseline; }
+  .summary__label {
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-right: 1rem; }
+  .summary__value {
+    font-size: 2rem;
+    margin-right: 2rem; }
+  .summary__value--in, .summary__value--interest {
+    color: #66c873; }
+  .summary__value--out {
+    color: #f5465d; }
 
 .app {
   max-width: 100rem;
@@ -172,7 +195,7 @@ body {
   display: none;
   visibility: hidden;
   position: absolute;
-  left: -100rem;
+  left: -100vw;
   height: 90vh;
   display: flex;
   align-items: center;
@@ -254,8 +277,9 @@ body {
   padding: 0 2rem;
   margin: 0 auto;
   margin-bottom: 2rem;
-  background-color: plum;
-  border-radius: 0.5rem; }
+  background-image: linear-gradient(to top right, #c3c7c7, #c0c0c0, #cdcdcd);
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
   .navigation__welcome-logo-container {
     display: flex;
     align-items: center;

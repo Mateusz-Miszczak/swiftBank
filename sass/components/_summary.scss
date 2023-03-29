@@ -1,0 +1,26 @@
+.summary {
+  display: flex;
+  grid-row: 5 / 6;
+  align-items: baseline;
+
+  &__label {
+    font-size: $tiny-font-size;
+    font-weight: $regular;
+    text-transform: uppercase;
+    margin-right: $margin-tiny;
+  }
+
+  &__value {
+    font-size: $medium-font-size;
+    margin-right: $margin-small;
+  }
+
+  &__value--in,
+  &__value--interest {
+    color: $color-green-2;
+  }
+
+  &__value--out {
+    color: $color-red-2;
+  }
+}

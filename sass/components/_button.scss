@@ -1,15 +1,16 @@
 .btn {
-  font-size: $big-font-size;
+  font-size: $medium-font-size;
   border: none;
   border-radius: $borad-tiny;
+  background-color: transparent;
+  background-image: linear-gradient(to top left, $color-gold, $color-silver-1);
+  cursor: pointer;
 
   &__submit {
-    padding: 0.1rem 2rem;
+    padding: 1rem 2rem;
 
-    background-color: $color-grey-dark-4;
     color: inherit;
     box-shadow: 0 5px 10px rgba($color-black, 0.2);
-    cursor: pointer;
 
     transition: all 0.3s;
     @include scaleToNormalSlowMixin;
@@ -25,5 +26,12 @@
       color: $color-grey-dark-3;
       box-shadow: 0 5px 10px rgba($color-black, 0.4);
     }
+  }
+
+  &--sort {
+    margin-left: auto;
+    background: none;
+    font-size: $small-font-size;
+    font-weight: $regular;
   }
 }
