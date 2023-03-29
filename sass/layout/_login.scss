@@ -81,11 +81,11 @@
     color: inherit;
     border: 0.1rem solid $color-white;
 
-    &-left-animation {
+    &--left-animation {
       @include moveInLeftSlowMixin;
     }
 
-    &-right-animation {
+    &--right-animation {
       @include moveInRightSlowMixin;
     }
 

@@ -29,13 +29,13 @@
           <input
             type="text"
             placeholder="User"
-            class="login__input login__input-left-animation login__input--user"
+            class="login__input login__input--left-animation login__input--user"
           />
           <input
             type="password"
             placeholder="PIN"
             maxlength="4"
-            class="login__input login__input-right-animation login__input--pin"
+            class="login__input login__input--right-animation login__input--pin"
           />
           <button class="btn btn__submit">&rarr;</button>
         </form>
@@ -55,23 +55,30 @@
         <p class="navigation__welcome-message">Log in to get started</p>
       </div>
 
-      <form class="navigation__login">
-        <input
-          type="text"
-          placeholder="user"
-          class="login__input navigation__login--input login__input--user"
-        />
-        <input
-          type="password"
-          placeholder="PIN"
-          maxlength="4"
-          class="login__input navigation__login--input login__input--pin"
-        />
-        <button class="btn btn__submit">&rarr;</button>
-      </form>
+      <div class="navigation__buttons">
+        <button class="btn btn__submit btn__submit--transfer">
+          Transfer money
+        </button>
+        <button class="btn btn__submit btn__submit--loan">Get a loan</button>
+        <button class="btn btn__submit btn__submit--close-acc">
+          Close account
+        </button>
+        <button class="btn btn__submit btn__submit--logout">&rarr;</button>
+      </div>
     </nav>
 
-    <main class="app"></main>
+    <main class="app">
+      <div class="balance">
+        <div class="balance__container-label-date">
+          <p class="balance__label">Current balance</p>
+          <p class="balance__date">
+            As of <span class="date">05/05/2023</span>
+          </p>
+        </div>
+
+        <div class="balance__value">2222$</div>
+      </div>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>

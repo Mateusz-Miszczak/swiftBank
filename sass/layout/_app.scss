@@ -1,0 +1,10 @@
+.app {
+  max-width: 100rem;
+  margin: 4rem auto;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto repeat(3, 15rem) auto;
+  gap: 2rem;
+  transition: all 0.3s;
+}

@@ -1,0 +1,29 @@
+.balance {
+  display: flex;
+  grid-column: 1 / span 2;
+  align-items: center;
+  justify-content: space-between;
+
+  &__container-label-date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  &__label {
+    font-size: $medium-font-size;
+    font-weight: $bold;
+  }
+
+  &__date {
+    font-size: $small-font-size;
+    color: $color-grey-dark-3-5;
+    // align-self: flex-start;
+  }
+
+  &__value {
+    font-size: $enormous-font-size;
+    font-weight: $regular;
+  }
+}
