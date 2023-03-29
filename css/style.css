@@ -134,6 +134,31 @@ body {
       color: #777;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); }
 
+.movements {
+  grid-row: 2 / span 3;
+  background-color: #fff;
+  border-radius: 1rem;
+  overflow: scroll; }
+  .movements__row {
+    display: flex;
+    align-items: center;
+    padding: 2rem 4rem;
+    border-bottom: 0.1rem solid #ffb900; }
+  .movements__type {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: blue;
+    padding: 1.5rem 3rem;
+    border-radius: 10rem;
+    margin-right: 2rem; }
+    .movements__type--deposit {
+      background-image: linear-gradient(to top left, #39b385, #9be15d); }
+    .movements__type--withdrawal {
+      background-image: linear-gradient(to top left, #e52a5a, #ff585f); }
+  .movements__value {
+    margin-left: auto; }
+
 .app {
   max-width: 100rem;
   margin: 4rem auto;
