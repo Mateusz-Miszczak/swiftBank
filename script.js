@@ -32,9 +32,49 @@ const accounts = [account1, account2, account3, account4];
 // ELEMENTS
 
 // Labels
+const labelLogin = document.querySelector('.login__welcome');
+const labelNavigation = document.querySelector('.navigation__welcome-message');
+const labelBalanceValue = document.querySelector('.balance__value');
+const labelDate = document.querySelector('.date');
+const labelMovementsDate = document.querySelector('.movements__date');
+const labelMovementsValue = document.querySelector('.movements__value');
+const labelSumIn = document.querySelector('.summary__value--in');
+const labelSumOut = document.querySelector('.summary__value--out');
+const labelSumInterest = document.querySelector('.summary__value--interest');
 
 // Containers
+const containerLogin = document.querySelector('.login__container');
+const containerApp = document.querySelector('.app');
+const containerMovements = document.querySelector('.movements');
 
 // Buttons
+const buttonLogIn = document.querySelector('.btn__log-in');
+const buttonTransfer = document.querySelector('.btn__submit--transfer');
+const buttonLoan = document.querySelector('.btn__submit--loan');
+const buttonCloseAcc = document.querySelector('.btn__submit--close-acc');
+const buttonLogOut = document.querySelector('.btn__submit--logout');
 
 // Inputs
+const loginInputUser = document.querySelector('.login__input--user');
+const loginInputPin = document.querySelector('.login__input--pin');
+
+// APP
+const displayMovements = mvmnts => {
+  containerMovements.innerHTML = '';
+
+  mvmnts.forEach((mov, i) => {
+    const type = mov >= 0 ? `deposit` : `withdrawal`;
+
+    const html = `
+    <div class="movements__row">
+      <div class="movements__type movements__type--${type}">
+        ${i + 1} ${type} deposit
+      </div>
+      <div class="movements__value">${mov}€</div>
+    </div>`;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+
+displayMovements(account1.movements);
