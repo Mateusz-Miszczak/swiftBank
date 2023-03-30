@@ -99,3 +99,37 @@ const calcDisplaySummary = acc => {
 };
 
 calcDisplaySummary(account1);
+
+const calcDisplayBalance = acc => {
+  acc.balance = acc.movements.reduce((acc, curr) => acc + curr, 0);
+  labelBalanceValue.textContent = `${acc.balance}$`;
+};
+
+calcDisplayBalance(account1);
+
+const userCreate = accs => {
+  accs.forEach(acc => {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+userCreate(accounts);
+
+const updateUI = acc => {
+  displayMovements(acc.movements);
+
+  calcDisplayBalance(acc);
+
+  calcDisplaySummary(acc);
+};
+
+const appRun = () => {
+  userCreate(accounts);
+};
+
+appRun();
+console.log(accounts);
