@@ -43,7 +43,8 @@ const labelSumOut = document.querySelector('.summary__value--out');
 const labelSumInterest = document.querySelector('.summary__value--interest');
 
 // Containers
-const containerLogin = document.querySelector('.login__container');
+const login = document.querySelector('.login');
+const navigation = document.querySelector('.navigation');
 const containerApp = document.querySelector('.app');
 const containerMovements = document.querySelector('.movements');
 
@@ -59,6 +60,7 @@ const loginInputUser = document.querySelector('.login__input--user');
 const loginInputPin = document.querySelector('.login__input--pin');
 
 // APP
+let currentAccountTrack;
 const displayMovements = mvmnts => {
   containerMovements.innerHTML = '';
 
@@ -76,8 +78,6 @@ const displayMovements = mvmnts => {
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
-
-displayMovements(account1.movements);
 
 const calcDisplaySummary = acc => {
   const incomes = acc.movements
@@ -98,14 +98,10 @@ const calcDisplaySummary = acc => {
   labelSumInterest.textContent = `${interest}$`;
 };
 
-calcDisplaySummary(account1);
-
 const calcDisplayBalance = acc => {
   acc.balance = acc.movements.reduce((acc, curr) => acc + curr, 0);
   labelBalanceValue.textContent = `${acc.balance}$`;
 };
-
-calcDisplayBalance(account1);
 
 const userCreate = accs => {
   accs.forEach(acc => {
@@ -127,9 +123,35 @@ const updateUI = acc => {
   calcDisplaySummary(acc);
 };
 
-const appRun = () => {
-  userCreate(accounts);
-};
+buttonLogIn.addEventListener('click', e => {
+  e.preventDefault();
 
-appRun();
-console.log(accounts);
+  currentAccountTrack = accounts.find(
+    acc => acc.username === loginInputUser.value
+  );
+
+  if (currentAccountTrack.pin === Number(loginInputPin.value)) {
+    labelNavigation.textContent = `Welcome back, ${
+      currentAccountTrack.owner.split(' ')[0]
+    }!`;
+
+    login.classList.toggle('hidden');
+    navigation.classList.toggle('hidden');
+    containerApp.classList.toggle('hidden');
+
+    loginInputUser.value = loginInputPin.value = '';
+    loginInputPin.blur();
+
+    updateUI(currentAccountTrack);
+  }
+});
+
+buttonLogOut.addEventListener('click', e => {
+  e.preventDefault();
+
+  login.classList.toggle('hidden');
+
+  navigation.classList.toggle('hidden');
+
+  containerApp.classList.toggle('hidden');
+});

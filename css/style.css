@@ -92,6 +92,18 @@ body {
   color: #333;
   padding: 3rem; }
 
+.visible {
+  display: block;
+  visibility: visible;
+  position: inherit;
+  left: 0; }
+
+.hidden {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  left: -100vw; }
+
 .balance {
   display: flex;
   grid-column: 1 / span 2;
@@ -192,10 +204,6 @@ body {
   transition: all 0.3s; }
 
 .login {
-  display: none;
-  visibility: hidden;
-  position: absolute;
-  left: -100vw;
   height: 90vh;
   display: flex;
   align-items: center;
