@@ -78,3 +78,24 @@ const displayMovements = mvmnts => {
 };
 
 displayMovements(account1.movements);
+
+const calcDisplaySummary = acc => {
+  const incomes = acc.movements
+    .filter(mov => mov > 0)
+    .reduce((acc, curr) => acc + curr);
+  labelSumIn.textContent = `${incomes}$`;
+
+  const outcomes = acc.movements
+    .filter(mov => mov < 0)
+    .reduce((acc, curr) => acc + curr);
+  labelSumOut.textContent = `${Math.abs(outcomes)}$`;
+
+  const interest = acc.movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * acc.interestRate) / 100)
+    .filter(intere => intere >= 1)
+    .reduce((acc, inte) => acc + inte, 0);
+  labelSumInterest.textContent = `${interest}$`;
+};
+
+calcDisplaySummary(account1);
