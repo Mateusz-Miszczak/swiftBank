@@ -1,0 +1,33 @@
+.modal {
+  @include centerAbsolute;
+  width: 70%;
+  background-color: $color-white;
+  padding: 6rem;
+  border-radius: $borad-tiny;
+  box-shadow: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+
+  &__hidden {
+    display: none;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(0.3rem);
+    z-index: 5;
+  }
+
+  &__h1 {
+    font-size: $medium-font-size;
+    margin-bottom: $margin-small;
+  }
+
+  &__p {
+    font-size: $default-font-size;
+  }
+}

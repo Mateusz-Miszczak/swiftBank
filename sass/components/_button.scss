@@ -34,4 +34,22 @@
     font-size: $small-font-size;
     font-weight: $regular;
   }
+
+  &__modal--show {
+    font-size: $medium-font-size;
+    font-weight: $bold;
+    padding: 1.75rem 3.5rem;
+    margin: 5rem 2rem;
+    background-color: $color-white;
+    color: $color-grey-dark-2;
+    border-radius: $borad-huge;
+  }
+
+  &__modal--close {
+    position: absolute;
+    top: 1.2rem;
+    right: 2rem;
+    font-size: $enormous-font-size;
+    color: $color-grey-dark-1;
+  }
 }

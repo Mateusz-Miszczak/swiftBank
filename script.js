@@ -47,6 +47,8 @@ const login = document.querySelector('.login');
 const navigation = document.querySelector('.navigation');
 const containerApp = document.querySelector('.app');
 const containerMovements = document.querySelector('.movements');
+const containerModal = document.querySelector('.modal');
+const containerModalOverlay = document.querySelector('.modal__overlay');
 
 // Buttons
 const buttonLogIn = document.querySelector('.btn__log-in');
@@ -54,6 +56,8 @@ const buttonTransfer = document.querySelector('.btn__submit--transfer');
 const buttonLoan = document.querySelector('.btn__submit--loan');
 const buttonCloseAcc = document.querySelector('.btn__submit--close-acc');
 const buttonLogOut = document.querySelector('.btn__submit--logout');
+const btnOpenModal = document.querySelector('.btn__modal--show');
+const btnCloseModal = document.querySelector('.btn__modal--close');
 
 // Inputs
 const loginInputUser = document.querySelector('.login__input--user');
@@ -70,7 +74,7 @@ const displayMovements = mvmnts => {
     const html = `
     <div class="movements__row">
       <div class="movements__type movements__type--${type}">
-        ${i + 1} ${type} deposit
+        ${i + 1} ${type}
       </div>
       <div class="movements__value">${mov}€</div>
     </div>`;
@@ -155,3 +159,24 @@ buttonLogOut.addEventListener('click', e => {
 
   containerApp.classList.toggle('hidden');
 });
+
+// const openModal = () => {
+//   containerModal.classList.remove('modal_hidden');
+//   containerModalOverlay.classList.remove('modal_hidden');
+// };
+
+// const closeModal = () => {
+//   containerModal.classList.add('modal_hidden');
+//   containerModalOverlay.classList.add('modal_hidden');
+// };
+
+// btnOpenModal.addEventListener('click', openModal);
+// btnCloseModal.addEventListener('click', closeModal);
+
+// containerModalOverlay.addEventListener('click', closeModal);
+
+// document.addEventListener('keydown', e =>
+//   e.key === 'Escape' && !containerModal.classList.contains('modal__hidden')
+//     ? closeModal()
+//     : ''
+// );

@@ -70,11 +70,3 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-// DISPLAY
-@mixin hideContent {
-  display: none;
-  visibility: hidden;
-  position: absolute;
-  left: -100vw;
-}
