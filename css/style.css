@@ -181,7 +181,8 @@ body {
     position: absolute;
     top: 1.2rem;
     right: 2rem;
-    background: none; }
+    background: none;
+    box-shadow: none; }
     .btn__modal--close:hover {
       color: #555; }
     .btn__modal--close:focus, .btn__modal--close:active {
@@ -378,16 +379,19 @@ body {
   .navigation__welcome-logo-img {
     height: inherit;
     width: inherit; }
+  .navigation__user--time {
+    display: flex;
+    flex-direction: column; }
   .navigation__welcome-message {
     padding: 2rem;
     font-size: 2rem;
     letter-spacing: 0.05rem;
-    transition: all 0.5s;
-    display: inline-block;
-    background-image: linear-gradient(to right, #555, #333, #aaa, #999, #777);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent; }
+    transition: all 0.5s; }
+  .navigation__time {
+    padding: 0 2rem;
+    letter-spacing: 0.05rem;
+    font-size: 1.4rem;
+    font-family: inherit; }
   .navigation__buttons {
     display: flex;
     gap: 2rem; }

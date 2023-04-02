@@ -35,13 +35,23 @@
     width: inherit;
   }
 
+  &__user--time {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__welcome-message {
     padding: 2rem;
     font-size: $medium-font-size;
     letter-spacing: $letter-sp-small;
     transition: all 0.5s;
+  }
 
-    @include gradientOnText;
+  &__time {
+    padding: 0 2rem;
+    letter-spacing: $letter-sp-small;
+    font-size: $small-font-size;
+    font-family: inherit;
   }
 
   &__buttons {

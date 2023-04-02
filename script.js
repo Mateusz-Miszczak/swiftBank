@@ -41,6 +41,7 @@ const labelMovementsValue = document.querySelector('.movements__value');
 const labelSumIn = document.querySelector('.summary__value--in');
 const labelSumOut = document.querySelector('.summary__value--out');
 const labelSumInterest = document.querySelector('.summary__value--interest');
+const labelTime = document.querySelector('.navigation__time');
 
 // Containers
 const login = document.querySelector('.login');
@@ -52,6 +53,7 @@ const containerModalOverlay = document.querySelector('.modal__overlay');
 
 // Buttons
 const buttonLogIn = document.querySelector('.btn__log-in');
+const buttonSort = document.querySelector('.btn--sort');
 const buttonTransfer = document.querySelector('.btn__submit--transfer');
 const buttonLoan = document.querySelector('.btn__submit--loan');
 const buttonCloseAcc = document.querySelector('.btn__submit--close-acc');
@@ -65,10 +67,11 @@ const loginInputPin = document.querySelector('.login__input--pin');
 
 // APP
 let currentAccountTrack;
-const displayMovements = mvmnts => {
+const displayMovements = (mvmnts, srt = false) => {
   containerMovements.innerHTML = '';
 
-  mvmnts.forEach((mov, i) => {
+  const movs = srt ? mvmnts.slice().sort((a, b) => a - b) : mvmnts;
+  movs.forEach((mov, i) => {
     const type = mov >= 0 ? `deposit` : `withdrawal`;
 
     const html = `
@@ -193,3 +196,25 @@ const getCurrentDate = () => {
 setInterval(() => {
   labelDate.textContent = getCurrentDate();
 }, 1000);
+
+const getCurrentTime = () => {
+  const today = new Date();
+  const f = new Intl.DateTimeFormat('en-us', {
+    timeStyle: 'long',
+  });
+  let currentTime = f.format(today);
+  return currentTime;
+};
+
+setInterval(() => {
+  labelTime.textContent = getCurrentTime();
+}, 1000);
+
+let sorted = false;
+
+buttonSort.addEventListener('click', e => {
+  e.preventDefault();
+
+  displayMovements(currentAccountTrack.movements, !sorted);
+  sorted = !sorted;
+});
