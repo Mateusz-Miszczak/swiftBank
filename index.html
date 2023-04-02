@@ -41,15 +41,18 @@
         </form>
         <button class="btn btn__modal--show">?</button>
 
-        <div class="modal modal__hidden">
-          <button class="btn__modal--close">&times;</button>
+        <div class="modal">
+          <button class="btn btn__modal--close">&times;</button>
           <h1 class="modal__h1">Example data to log in</h1>
-          <p class="modal__p">Username: mm Pin: 1111</p>
-          <p class="modal__p">Username: ah Pin: 2222</p>
-          <p class="modal__p">Username: jp Pin: 3333</p>
-          <p class="modal__p">Username: hh Pin: 4444</p>
+          <div class="modal__p-container">
+            <p class="modal__p">Username: mm | Pin: 1111</p>
+            <p class="modal__p">Username: ah | Pin: 2222</p>
+            <p class="modal__p">Username: jp | Pin: 3333</p>
+            <p class="modal__p">Username: hh | Pin: 4444</p>
+          </div>
+          <h2 class="modal__h2">Click the question mark to see data again</h2>
         </div>
-        <div class="modal__overlay modal__hidden"></div>
+        <div class="modal__overlay"></div>
       </div>
     </div>
 
@@ -74,7 +77,9 @@
         <button class="btn btn__submit btn__submit--close-acc">
           Close account
         </button>
-        <button class="btn btn__submit btn__submit--logout">&rarr;</button>
+        <button class="btn btn__submit btn__submit--logout">
+          <ion-icon name="log-out-outline"></ion-icon>
+        </button>
       </div>
     </nav>
 
@@ -121,5 +126,13 @@
       </div>
     </main>
     <script src="script.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>

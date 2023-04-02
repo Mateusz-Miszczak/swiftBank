@@ -76,7 +76,7 @@ const displayMovements = mvmnts => {
       <div class="movements__type movements__type--${type}">
         ${i + 1} ${type}
       </div>
-      <div class="movements__value">${mov}€</div>
+      <div class="movements__value">${mov}$</div>
     </div>`;
 
     containerMovements.insertAdjacentHTML('afterbegin', html);
@@ -160,23 +160,23 @@ buttonLogOut.addEventListener('click', e => {
   containerApp.classList.toggle('hidden');
 });
 
-// const openModal = () => {
-//   containerModal.classList.remove('modal_hidden');
-//   containerModalOverlay.classList.remove('modal_hidden');
-// };
+const openCloseModal = () => {
+  containerModal.classList.toggle('modal__hidden');
+  containerModalOverlay.classList.toggle('modal__hidden');
+};
 
-// const closeModal = () => {
-//   containerModal.classList.add('modal_hidden');
-//   containerModalOverlay.classList.add('modal_hidden');
-// };
+const closeModal = () => {
+  containerModal.classList.add('modal__hidden');
+  containerModalOverlay.classList.add('modal__hidden');
+};
 
-// btnOpenModal.addEventListener('click', openModal);
-// btnCloseModal.addEventListener('click', closeModal);
+btnOpenModal.addEventListener('click', openCloseModal);
+btnCloseModal.addEventListener('click', openCloseModal);
 
-// containerModalOverlay.addEventListener('click', closeModal);
+containerModalOverlay.addEventListener('click', openCloseModal);
 
-// document.addEventListener('keydown', e =>
-//   e.key === 'Escape' && !containerModal.classList.contains('modal__hidden')
-//     ? closeModal()
-//     : ''
-// );
+document.addEventListener('keydown', e =>
+  e.key === 'Escape' && !containerModal.classList.contains('modal__hidden')
+    ? closeModal()
+    : ''
+);

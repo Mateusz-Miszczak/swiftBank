@@ -70,3 +70,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+// OUTLINE STYLE
+
+@mixin outlineStyle {
+  outline: none;
+  color: $color-grey-dark-3;
+  box-shadow: 0 5px 10px rgba($color-black, 0.4);
+}

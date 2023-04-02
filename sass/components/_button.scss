@@ -1,18 +1,19 @@
 .btn {
+  padding: 1rem 2rem;
   font-size: $medium-font-size;
+  color: $color-grey-dark-1;
+  background-color: transparent;
   border: none;
   border-radius: $borad-tiny;
-  background-color: transparent;
   background-image: linear-gradient(to top left, $color-gold, $color-silver-1);
+  box-shadow: 0 5px 10px rgba($color-black, 0.2);
+
+  display: inline-block;
+  transition: all 0.3s;
   cursor: pointer;
 
   &__submit {
-    padding: 1rem 2rem;
-
     color: inherit;
-    box-shadow: 0 5px 10px rgba($color-black, 0.2);
-
-    transition: all 0.3s;
     @include scaleToNormalSlowMixin;
 
     &:hover {
@@ -22,9 +23,18 @@
 
     &:focus,
     &:active {
-      outline: none;
-      color: $color-grey-dark-3;
-      box-shadow: 0 5px 10px rgba($color-black, 0.4);
+      @include outlineStyle;
+    }
+
+    &--logout {
+      background: none;
+      box-shadow: none;
+      font-size: $medium-font-size;
+
+      &:focus,
+      &:active {
+        box-shadow: none;
+      }
     }
   }
 
@@ -33,23 +43,53 @@
     background: none;
     font-size: $small-font-size;
     font-weight: $regular;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:focus,
+    &:active {
+      @include outlineStyle;
+    }
   }
 
   &__modal--show {
     font-size: $medium-font-size;
     font-weight: $bold;
-    padding: 1.75rem 3.5rem;
+    padding: 1rem 2rem;
     margin: 5rem 2rem;
     background-color: $color-white;
-    color: $color-grey-dark-2;
+    color: $color-grey-dark-1;
     border-radius: $borad-huge;
+
+    &:hover {
+      color: $color-grey-dark-2;
+      transform: scale(1.1);
+    }
+
+    &:focus,
+    &:active {
+      @include outlineStyle;
+    }
   }
 
   &__modal--close {
+    padding: 1rem 2rem;
+    font-size: $enormous-font-size;
+    color: $color-grey-dark-1;
     position: absolute;
     top: 1.2rem;
     right: 2rem;
-    font-size: $enormous-font-size;
-    color: $color-grey-dark-1;
+    background: none;
+
+    &:hover {
+      color: $color-grey-dark-2;
+    }
+
+    &:focus,
+    &:active {
+      @include outlineStyle;
+    }
   }
 }
