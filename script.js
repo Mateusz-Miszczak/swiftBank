@@ -180,3 +180,16 @@ document.addEventListener('keydown', e =>
     ? closeModal()
     : ''
 );
+
+const getCurrentDate = () => {
+  const today = new Date();
+  const f = new Intl.DateTimeFormat('en-us', {
+    dateStyle: 'full',
+  });
+  let currentDate = f.format(today);
+  return currentDate;
+};
+
+setInterval(() => {
+  labelDate.textContent = getCurrentDate();
+}, 1000);
