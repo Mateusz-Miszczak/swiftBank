@@ -50,6 +50,7 @@ const containerApp = document.querySelector('.app');
 const containerMovements = document.querySelector('.movements');
 const containerModal = document.querySelector('.modal');
 const containerModalOverlay = document.querySelector('.modal__overlay');
+const createForm = document.querySelector('.create__form');
 
 // Buttons
 const buttonLogIn = document.querySelector('.btn__log-in');
@@ -217,4 +218,71 @@ buttonSort.addEventListener('click', e => {
 
   displayMovements(currentAccountTrack.movements, !sorted);
   sorted = !sorted;
+});
+
+buttonTransfer.addEventListener('click', e => {
+  e.preventDefault();
+
+  const html = `
+      <div class="operation operation--transfer operation--form">
+        <h2>Transfer money</h2>
+        <form class="form form--transfer">
+          <input type="text" class="form__input form__input--to" />
+          <input type="number" class="form__input form__input--amount" />
+          <button class="form__btn form__btn--transfer">&rarr;</button>
+          <label class="form__label">Transfer to</label>
+          <label class="form__label">Amount</label>
+        </form>
+      </div>`;
+
+  const transferForm = document.querySelector('.operation--form');
+
+  if (transferForm) {
+    transferForm.remove();
+  }
+  createForm.insertAdjacentHTML('afterbegin', html);
+});
+
+buttonLoan.addEventListener('click', e => {
+  e.preventDefault();
+
+  const html = `
+      <div class="operation operation--loan operation--form">
+        <h2>Request loan</h2>
+        <form class="form form--loan">
+          <input type="number" class="form__input form__input--loan-amount" />
+          <button class="form__btn form__btn--loan">&rarr;</button>
+          <label class="form__label form__label--loan">Amount</label>
+        </form>
+      </div>`;
+  const transferForm = document.querySelector('.operation--form');
+  if (transferForm) {
+    transferForm.remove();
+  }
+  createForm.insertAdjacentHTML('afterbegin', html);
+});
+
+buttonCloseAcc.addEventListener('click', e => {
+  e.preventDefault();
+
+  const html = `
+      <div class="operation operation--close operation--form">
+        <h2>Close account</h2>
+        <form class="form form--close">
+          <input type="text" class="form__input form__input--user" />
+          <input
+            type="password"
+            maxlength="6"
+            class="form__input form__input--pin"
+          />
+          <button class="form__btn form__btn--close">&rarr;</button>
+          <label class="form__label">Confirm user</label>
+          <label class="form__label">Confirm PIN</label>
+        </form>
+      </div>`;
+  const transferForm = document.querySelector('.operation--form');
+  if (transferForm) {
+    transferForm.remove();
+  }
+  createForm.insertAdjacentHTML('afterbegin', html);
 });

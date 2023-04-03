@@ -82,7 +82,7 @@ html {
 
 body {
   box-sizing: border-box;
-  background-color: #555; }
+  background-color: red; }
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -95,8 +95,10 @@ body {
 .hidden {
   display: none;
   visibility: hidden;
-  position: absolute;
-  left: -100vw; }
+  position: fixed;
+  top: -100%;
+  opacity: 0;
+  transform: translate(0, -100%); }
 
 .balance {
   display: flex;
@@ -190,12 +192,16 @@ body {
       color: #777;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); }
 
+.create {
+  grid-row: 2 / span 3;
+  grid-column: 2; }
+
 .modal {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 35%;
+  transform: translate(-50%, -50%) scale(1);
+  max-width: 35%;
   background-color: #fff;
   padding: 6rem;
   border-radius: 0.5rem;
@@ -204,15 +210,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem; }
+  gap: 1rem;
+  transition: all 0.3s;
+  pointer-events: all; }
   .modal__hidden {
-    display: none; }
+    transform: translate(-50%, -50%) scale(0); }
   .modal__overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(0.3rem);
     z-index: 5; }
@@ -279,7 +287,7 @@ body {
   grid-template-columns: 2fr 1fr;
   grid-template-rows: auto repeat(3, 15rem) auto;
   gap: 2rem;
-  transition: all 0.3s; }
+  transition: all 0.7s; }
 
 .login {
   height: 90vh;
@@ -288,7 +296,8 @@ body {
   justify-content: center;
   color: #333;
   background-color: #eee;
-  border-radius: 0.5rem; }
+  border-radius: 0.5rem;
+  transition: all 0.7s; }
   .login__container {
     height: 70vh;
     width: 25vw;
@@ -308,11 +317,6 @@ body {
     font-size: 3rem;
     letter-spacing: 0.05rem;
     transition: all 0.5s;
-    display: inline-block;
-    background-image: linear-gradient(to right, #555, #333, #aaa, #999, #777);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
     animation-name: moveInBot;
     animation-duration: 1s;
     animation-timing-function: ease-out; }
@@ -365,7 +369,8 @@ body {
   margin-bottom: 2rem;
   background-image: linear-gradient(to top right, #c3c7c7, #c0c0c0, #cdcdcd);
   border-radius: 0.5rem;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s; }
   .navigation__welcome-logo-container {
     display: flex;
     align-items: center;

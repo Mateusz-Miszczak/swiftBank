@@ -9,8 +9,7 @@
   background-color: $color-grey-light-2;
 
   border-radius: $borad-tiny;
-
-  // @include moveInRightFastMixin;
+  transition: all 0.7s;
 
   &__container {
     height: 70vh;
@@ -37,7 +36,6 @@
     letter-spacing: $letter-sp-small;
     transition: all 0.5s;
 
-    @include gradientOnText;
     @include moveInBotSlowMixin;
   }
 
