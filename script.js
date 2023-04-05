@@ -56,11 +56,16 @@ const createForm = document.querySelector('.create__form');
 const buttonLogIn = document.querySelector('.btn__log-in');
 const buttonSort = document.querySelector('.btn--sort');
 const buttonTransfer = document.querySelector('.btn__submit--transfer');
+// const buttonTransferSubmit = document.querySelector('.form__btn--transfer');
 const buttonLoan = document.querySelector('.btn__submit--loan');
+// const buttonLoanSubmit = document.querySelector('.form__btn--loan');
 const buttonCloseAcc = document.querySelector('.btn__submit--close-acc');
+// const buttonCloseAccSubmit = document.querySelector('.form__btn--close');
+const formButton = document.querySelector('.form__btn');
 const buttonLogOut = document.querySelector('.btn__submit--logout');
 const btnOpenModal = document.querySelector('.btn__modal--show');
 const btnCloseModal = document.querySelector('.btn__modal--close');
+let currentButton;
 
 // Inputs
 const loginInputUser = document.querySelector('.login__input--user');
@@ -131,6 +136,14 @@ const updateUI = acc => {
   calcDisplaySummary(acc);
 };
 
+const toggleClasses = () => {
+  login.classList.toggle('hidden');
+
+  navigation.classList.toggle('hidden');
+
+  containerApp.classList.toggle('hidden');
+};
+
 buttonLogIn.addEventListener('click', e => {
   e.preventDefault();
 
@@ -138,7 +151,7 @@ buttonLogIn.addEventListener('click', e => {
     acc => acc.username === loginInputUser.value
   );
 
-  if (currentAccountTrack.pin === Number(loginInputPin.value)) {
+  if (currentAccountTrack?.pin === Number(loginInputPin.value)) {
     labelNavigation.textContent = `Welcome back, ${
       currentAccountTrack.owner.split(' ')[0]
     }!`;
@@ -157,11 +170,7 @@ buttonLogIn.addEventListener('click', e => {
 buttonLogOut.addEventListener('click', e => {
   e.preventDefault();
 
-  login.classList.toggle('hidden');
-
-  navigation.classList.toggle('hidden');
-
-  containerApp.classList.toggle('hidden');
+  toggleClasses();
 });
 
 const openCloseModal = () => {
@@ -227,57 +236,137 @@ const displayForm = (html, formClass) => {
   }
   createForm.insertAdjacentHTML('afterbegin', html);
   document.querySelector('.operation').classList.add(formClass);
+
+  const currentButton = document.querySelector('.form__btn');
+  currentButton.addEventListener('click', e => {
+    e.preventDefault();
+    if (currentButton.classList.contains('form__btn--transfer')) {
+      const inputTransferTo = document.querySelector('.form__input--to');
+      const inputTransferAmount = document.querySelector(
+        '.form__input--amount'
+      );
+      transferTo(inputTransferTo, inputTransferAmount);
+    } else if (currentButton.classList.contains('form__btn--loan')) {
+      const inputLoanAmount = document.querySelector(
+        '.form__input--loan-amount'
+      );
+      takeLoan(inputLoanAmount);
+    } else if (currentButton.classList.contains('form__btn--close')) {
+      const inputCloseUsername = document.querySelector('.form__input--user');
+      const inputClosePin = document.querySelector('.form__input--pin');
+      closeUser(inputCloseUsername, inputClosePin);
+    }
+  });
+};
+
+const formsObj = {
+  formTransfer: `
+  <div class="operation operation--all">
+    <h2 class="form__h2" >Transfer money</h2>
+    <form class="form form--transfer">
+      <label for="to" class="form__label">Transfer to</label>
+      <input type="text" class="form__input form__input--to" id="to"/>
+      <label for="amount" class="form__label">Amount</label>
+      <input type="number" class="form__input form__input--amount" id="amount"/>
+      <button class="btn form__btn form__btn--transfer">&rarr;</button>
+    </form>
+  </div>`,
+
+  formLoan: `
+  <div class="operation operation--all">
+    <h2 class="form__h2" >Request loan</h2>
+    <form class="form form--loan">
+      <label for="loan" class="form__label form__label--loan">Amount</label>
+      <input type="number" class="form__input form__input--loan-amount" id="loan"/>
+      <button class="btn form__btn form__btn--loan">&rarr;</button>
+    </form>
+  </div>`,
+
+  formCloseAcc: `
+  <div class="operation operation--all">
+    <h2 class="form__h2" >Close account</h2>
+    <form class="form form--close">
+      <label for="confirm-user" class="form__label">Confirm user</label>
+      <input type="text" class="form__input form__input--user" id="confirm-user"/>
+      <label for="confirm-pin" class="form__label">Confirm PIN</label>
+      <input
+        type="password"
+        maxlength="4"
+        class="form__input form__input--pin"
+        id="confirm-pin"
+      />
+      <button class="btn form__btn form__btn--close">&rarr;</button>
+    </form>
+  </div>`,
 };
 
 buttonTransfer.addEventListener('click', e => {
   e.preventDefault();
 
-  const html = `
-      <div class="operation operation--transfer">
-        <h2>Transfer money</h2>
-        <form class="form form--transfer">
-          <input type="text" class="form__input form__input--to" />
-          <input type="number" class="form__input form__input--amount" />
-          <button class="form__btn form__btn--transfer">&rarr;</button>
-          <label class="form__label">Transfer to</label>
-          <label class="form__label">Amount</label>
-        </form>
-      </div>`;
-  displayForm(html, 'operation--form');
+  displayForm(formsObj.formTransfer, 'operation--form');
 });
 
 buttonLoan.addEventListener('click', e => {
   e.preventDefault();
 
-  const html = `
-      <div class="operation operation--loan">
-        <h2>Request loan</h2>
-        <form class="form form--loan">
-          <input type="number" class="form__input form__input--loan-amount" />
-          <button class="form__btn form__btn--loan">&rarr;</button>
-          <label class="form__label form__label--loan">Amount</label>
-        </form>
-      </div>`;
-  displayForm(html, 'operation--form');
+  displayForm(formsObj.formLoan, 'operation--form');
 });
 
 buttonCloseAcc.addEventListener('click', e => {
   e.preventDefault();
 
-  const html = `
-      <div class="operation operation--close">
-        <h2>Close account</h2>
-        <form class="form form--close">
-          <input type="text" class="form__input form__input--user" />
-          <input
-            type="password"
-            maxlength="4"
-            class="form__input form__input--pin"
-          />
-          <button class="form__btn form__btn--close">&rarr;</button>
-          <label class="form__label">Confirm user</label>
-          <label class="form__label">Confirm PIN</label>
-        </form>
-      </div>`;
-  displayForm(html, 'operation--form');
+  displayForm(formsObj.formCloseAcc, 'operation--form');
 });
+
+const transferTo = (to, amount) => {
+  const amountMoney = Number(amount.value);
+  const receiverAcc = accounts.find(acc => acc?.username === to.value);
+
+  amount.value = to.value = '';
+  amount.blur();
+
+  if (
+    amountMoney > 0 &&
+    receiverAcc &&
+    currentAccountTrack.balance &&
+    receiverAcc?.username !== currentAccountTrack.username
+  ) {
+    currentAccountTrack.movements.push(-amountMoney);
+    receiverAcc.movements.push(amountMoney);
+
+    updateUI(currentAccountTrack);
+  }
+};
+
+const takeLoan = amount => {
+  const amountMoney = Number(amount.value);
+  const requestedAmount = currentAccountTrack.movements.some(
+    mov => mov >= amountMoney * 0.1
+  );
+
+  if (amountMoney > 0 && requestedAmount) {
+    currentAccountTrack.movements.push(amountMoney);
+
+    updateUI(currentAccountTrack);
+  }
+  amount.value = '';
+};
+
+const closeUser = (name, pin) => {
+  let closeUser = name.value;
+  let closeUserPin = Number(pin.value);
+
+  if (
+    closeUser === currentAccountTrack.username &&
+    closeUserPin === currentAccountTrack.pin
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccountTrack.username
+    );
+
+    accounts.splice(index, 1);
+
+    toggleClasses();
+  }
+  closeUser = closeUserPin = '';
+};
