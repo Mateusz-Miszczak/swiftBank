@@ -12,5 +12,7 @@ html {
 
 body {
   box-sizing: border-box;
-  background-color: red;
+  scroll-behavior: none;
+  background-color: rgba(138, 43, 226, 0.7);
+  overflow: hidden;
 }

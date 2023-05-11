@@ -3,7 +3,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
-  max-width: 35%;
+  max-width: 100%;
   background-color: $color-white;
   padding: 6rem;
   border-radius: $borad-tiny;
@@ -15,6 +15,7 @@
   gap: 1rem;
   transition: all 0.3s;
   pointer-events: all;
+  overflow: hidden;
 
   &__hidden {
     transform: translate(-50%, -50%) scale(0);
@@ -39,6 +40,7 @@
 
   &__h2 {
     font-size: $medium-font-size;
+    text-align: center;
   }
 
   &__p-container {

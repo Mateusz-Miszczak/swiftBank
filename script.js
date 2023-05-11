@@ -47,6 +47,7 @@ const labelTime = document.querySelector('.navigation__time');
 const login = document.querySelector('.login');
 const navigation = document.querySelector('.navigation');
 const containerApp = document.querySelector('.app');
+const containerMain = document.querySelector('.main__container');
 const containerMovements = document.querySelector('.movements');
 const containerModal = document.querySelector('.modal');
 const containerModalOverlay = document.querySelector('.modal__overlay');
@@ -70,6 +71,9 @@ let currentButton;
 // Inputs
 const loginInputUser = document.querySelector('.login__input--user');
 const loginInputPin = document.querySelector('.login__input--pin');
+
+// Video
+const backgroundVideo = document.querySelector('.bg-video');
 
 // APP
 let currentAccountTrack;
@@ -163,6 +167,7 @@ buttonLogIn.addEventListener('click', e => {
     loginInputUser.value = loginInputPin.value = '';
     loginInputPin.blur();
 
+    backgroundVideo.classList.toggle('bg-video__hidden');
     updateUI(currentAccountTrack);
   }
 });
@@ -170,6 +175,7 @@ buttonLogIn.addEventListener('click', e => {
 buttonLogOut.addEventListener('click', e => {
   e.preventDefault();
 
+  backgroundVideo.classList.toggle('bg-video__hidden');
   toggleClasses();
 });
 

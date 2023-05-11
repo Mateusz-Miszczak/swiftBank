@@ -10,10 +10,13 @@
 
   border-radius: $borad-tiny;
   transition: all 0.7s;
+  z-index: 0;
+  @include centerAbsolute;
+  // overflow: hidden;
 
   &__container {
     height: 70vh;
-    width: 25vw;
+    width: 50vw;
 
     display: flex;
     flex-direction: column;
@@ -21,13 +24,11 @@
     justify-content: center;
     gap: 3rem;
 
-    // border: 0.1rem solid $color-black;
     border-radius: $borad-small;
+    overflow: hidden;
 
-    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.25);
-
-    background-color: $color-grey-light-3;
-    @include moveInBotFastMixin;
+    @include centerAbsolute;
+    // @include moveInBotFastMixin;
   }
 
   &__welcome {
